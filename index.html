@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengumuman Kelulusan – SDN Kedoya Selatan 04 Pagi</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:   #1a6b3a;
+    --green-mid:    #2e8b57;
+    --green-light:  #4caf7d;
+    --green-pale:   #e8f5ee;
+    --gold:         #c9a84c;
+    --gold-light:   #f0d080;
+    --gold-pale:    #fdf8ec;
+    --white:        #ffffff;
+    --text-dark:    #1a2e1e;
+    --text-mid:     #3a5a40;
+    --shadow:       0 8px 32px rgba(30,90,50,0.13);
+    --radius:       18px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--green-pale);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===================== PAGES ===================== */
+  .page { display: none; min-height: 100vh; flex-direction: column; }
+  .page.active { display: flex; }
+
+  /* ===================== HEADER ===================== */
+  header {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, #1a5c34 100%);
+    color: var(--white);
+    padding: 18px 24px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff12' stroke-width='1'%3E%3Cpolygon points='40,5 55,20 55,40 40,55 25,40 25,20'/%3E%3C/g%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+  .header-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    color: var(--green-deep);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    animation: fadeSlideDown 0.6s ease both;
+  }
+  header h1 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.1rem, 3.5vw, 1.7rem);
+    font-weight: 700;
+    line-height: 1.35;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    animation: fadeSlideDown 0.7s 0.1s ease both;
+  }
+  header p.subtitle {
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    margin-top: 6px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    animation: fadeSlideDown 0.7s 0.2s ease both;
+  }
+
+  /* ===================== COUNTDOWN ===================== */
+  .countdown-section {
+    background: linear-gradient(90deg, var(--gold-pale), #fff9e8, var(--gold-pale));
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 18px 16px;
+    text-align: center;
+    animation: fadeIn 0.8s 0.3s both;
+  }
+  .countdown-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    margin-bottom: 12px;
+  }
+  .countdown-title span { color: var(--gold); }
+  .countdown-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cd-box {
+    background: var(--green-deep);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 62px;
+    box-shadow: 0 4px 12px rgba(26,107,58,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .cd-box::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+  .cd-num {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .cd-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+    display: block;
+  }
+  .cd-separator {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    align-self: center;
+    line-height: 1;
+    margin-top: -6px;
+  }
+  .cd-done {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: var(--green-deep);
+    font-weight: 700;
+    padding: 8px 0;
+  }
+
+  /* ===================== MAIN LANDING ===================== */
+  .landing-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 16px 24px;
+    gap: 24px;
+  }
+
+  /* SVG Illustration */
+  .illustration-wrap {
+    width: 100%;
+    max-width: 440px;
+    animation: fadeSlideUp 0.8s 0.3s ease both;
+  }
+
+  /* Sambutan */
+  .sambutan-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 22px;
+    max-width: 640px;
+    width: 100%;
+    border-left: 5px solid var(--gold);
+    animation: fadeSlideUp 0.8s 0.45s ease both;
+    position: relative;
+    overflow: hidden;
+  }
+  .sambutan-card::before {
+    content: '❝';
+    position: absolute;
+    top: -10px; right: 14px;
+    font-size: 6rem;
+    color: var(--green-pale);
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .sambutan-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sambutan-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-light);
+  }
+  .sambutan-title {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--green-deep);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .sambutan-text {
+    font-size: 0.83rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+  }
+  .sambutan-sig {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--green-pale);
+    font-size: 0.78rem;
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+
+  /* Login Button */
+  .btn-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(26,107,58,0.35), 0 0 0 0 rgba(78,175,125,0.4);
+    transition: transform 0.18s, box-shadow 0.18s;
+    animation: fadeSlideUp 0.8s 0.6s ease both, pulse-glow 2.5s 1.4s infinite;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-login::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 3s 2s infinite;
+  }
+  .btn-login:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(26,107,58,0.4); }
+  .btn-login .icon { font-size: 1.2rem; }
+
+  /* ===================== CEK PAGE ===================== */
+  .cek-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 24px;
+    gap: 22px;
+  }
+  .cek-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px 24px;
+    max-width: 480px;
+    width: 100%;
+    animation: fadeSlideUp 0.7s ease both;
+  }
+  .cek-icon {
+    width: 64px; height: 64px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 16px;
+    border: 3px solid var(--green-light);
+  }
+  .cek-card h2 {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    color: var(--green-deep);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .cek-card .cek-sub {
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  label.field-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+  input[type="text"], input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid #d4e8db;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--green-pale);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    letter-spacing: 1px;
+  }
+  input:focus {
+    border-color: var(--green-mid);
+    box-shadow: 0 0 0 3px rgba(78,175,125,0.18);
+    background: var(--white);
+  }
+  .btn-cek {
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 4px 16px rgba(26,107,58,0.28);
+  }
+  .btn-cek:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,107,58,0.35); }
+
+  /* Result Card */
+  .result-card {
+    max-width: 480px;
+    width: 100%;
+    border-radius: var(--radius);
+    padding: 24px;
+    animation: fadeSlideUp 0.6s ease both;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+  .result-card.show { display: block; }
+  .result-card.lulus { background: linear-gradient(135deg, #e8f8ee, #f0fff5); border: 2px solid #4caf7d; }
+  .result-card.tidak-lulus { background: linear-gradient(135deg, #fff0f0, #fff5f5); border: 2px solid #e57373; }
+  .result-card.not-found { background: linear-gradient(135deg, #fff8e1, #fffdf0); border: 2px solid var(--gold); }
+
+  .result-siswa-name {
+    font-family: 'Amiri', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--green-deep);
+    margin-bottom: 4px;
+  }
+  .result-nisn {
+    font-size: 0.78rem;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .result-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+  .result-status.lulus { background: #2e8b57; color: #fff; }
+  .result-status.tidak-lulus { background: #c62828; color: #fff; }
+  .result-msg {
+    background: rgba(46,139,87,0.08);
+    border-left: 4px solid var(--green-mid);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+  .result-msg strong { color: var(--green-deep); font-size: 0.9rem; display: block; margin-bottom: 4px; }
+
+  /* Error */
+  .result-error {
+    font-size: 0.85rem;
+    color: #b45309;
+    text-align: center;
+    padding: 8px;
+  }
+
+  /* Countdown announcement */
+  .cek-locked-msg {
+    background: linear-gradient(135deg, #fffbe6, #fff8d4);
+    border: 2px dashed var(--gold);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    animation: fadeSlideUp 0.7s 0.2s ease both;
+    display: none;
+  }
+  .cek-locked-msg.show { display: block; }
+  .cek-locked-msg .lock-icon { font-size: 2rem; margin-bottom: 8px; }
+  .cek-locked-msg p { font-size: 0.8rem; color: #92650a; line-height: 1.7; }
+
+  /* ===================== ADMIN ===================== */
+  .admin-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px 24px;
+    max-width: 560px;
+    width: 100%;
+    animation: fadeSlideUp 0.7s ease both;
+    border-top: 4px solid var(--gold);
+  }
+  .admin-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .admin-badge {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    color: var(--green-deep);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .admin-table-wrap { overflow-x: auto; margin-top: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  th {
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--green-pale); }
+  tr:hover td { background: var(--green-pale); }
+  .badge-lulus { background: #2e8b57; color: #fff; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
+  .badge-tidak { background: #c62828; color: #fff; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
+
+  /* search admin */
+  .admin-search { display: flex; gap: 8px; margin-bottom: 12px; }
+  .admin-search input { flex: 1; }
+  .admin-search button {
+    padding: 0 18px;
+    background: var(--green-deep);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Upload */
+  .upload-area {
+    border: 2px dashed var(--gold);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background: var(--gold-pale);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 16px;
+  }
+  .upload-area:hover { background: #fdf3c0; }
+  .upload-area input { display: none; }
+  .upload-area .upload-icon { font-size: 2rem; margin-bottom: 6px; }
+  .upload-area p { font-size: 0.78rem; color: var(--text-mid); }
+  .upload-area p strong { color: var(--green-deep); }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+  footer span { color: var(--gold-light); font-weight: 600; }
+
+  /* Back button */
+  .btn-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: none;
+    border: 2px solid var(--white);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    margin-top: 8px;
+  }
+  .btn-back:hover { background: rgba(255,255,255,0.15); }
+
+  /* Nav tabs (cek vs admin) */
+  .page-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--green-pale);
+    border-radius: 12px;
+    padding: 4px;
+    max-width: 480px;
+    width: 100%;
+    animation: fadeIn 0.7s ease both;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 9px 12px;
+    border: none;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--white);
+    color: var(--green-deep);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  }
+
+  /* Admin Login */
+  .admin-login-overlay {
+    position: fixed; inset: 0;
+    background: rgba(15,50,25,0.82);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+  }
+  .admin-login-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    width: 90%; max-width: 360px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: fadeSlideUp 0.5s ease both;
+    text-align: center;
+  }
+  .admin-login-box h3 {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+  }
+  .admin-login-box p { font-size: 0.75rem; color: #888; margin-bottom: 20px; }
+  .admin-login-box input { margin-bottom: 12px; }
+  .btn-admin-login {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+    color: #fff; border: none; border-radius: 10px;
+    font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 700;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+  .btn-admin-login:hover { opacity: 0.9; }
+  .btn-close-overlay {
+    margin-top: 12px;
+    background: none; border: none;
+    font-size: 0.78rem; color: #aaa; cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  .admin-err { color: #c62828; font-size: 0.75rem; margin-top: 6px; }
+
+  /* ===================== ANIMATIONS ===================== */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes shimmer { 0% { left: -60%; } 100% { left: 120%; } }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 6px 24px rgba(26,107,58,0.35), 0 0 0 0 rgba(78,175,125,0.35); }
+    50% { box-shadow: 0 6px 24px rgba(26,107,58,0.35), 0 0 0 10px rgba(78,175,125,0); }
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  @keyframes starSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+  /* Responsive */
+  @media(min-width: 600px) {
+    .landing-main { padding: 36px 24px 32px; }
+    .illustration-wrap { max-width: 500px; }
+  }
+  @media(max-width: 380px) {
+    .cd-box { min-width: 50px; padding: 8px 10px; }
+    .cd-num { font-size: 1.4rem; }
+    header h1 { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== ADMIN LOGIN OVERLAY ==================== -->
+<div class="admin-login-overlay" id="adminOverlay" style="display:none;">
+  <div class="admin-login-box">
+    <div style="font-size:2.2rem;margin-bottom:10px;">🔐</div>
+    <h3>Akses Admin</h3>
+    <p>Masukkan kredensial admin untuk melanjutkan</p>
+    <label class="field-label" style="text-align:left;">Username</label>
+    <input type="text" id="adminUser" placeholder="Username admin" autocomplete="off">
+    <label class="field-label" style="text-align:left;margin-top:4px;">Password</label>
+    <input type="password" id="adminPass" placeholder="Password admin">
+    <p class="admin-err" id="adminErr" style="display:none;">Username atau password salah.</p>
+    <button class="btn-admin-login" onclick="doAdminLogin()">Masuk sebagai Admin</button>
+    <button class="btn-close-overlay" onclick="closeAdminOverlay()">✕ Batal</button>
+  </div>
+</div>
+
+<!-- ==================== PAGE 1: LANDING ==================== -->
+<div class="page active" id="pageLanding">
+  <header>
+    <div class="header-badge">📢 Pengumuman Resmi</div>
+    <h1>Pengumuman Kelulusan Siswa<br>SDN Kedoya Selatan 04 Pagi</h1>
+    <p class="subtitle">Tahun Pelajaran 2025 / 2026</p>
+    <button class="btn-back" onclick="showAdminOverlay()" style="position:absolute;top:14px;right:14px;margin:0;font-size:0.65rem;padding:5px 10px;opacity:0.6;">⚙ Admin</button>
+  </header>
+
+  <!-- Countdown -->
+  <div class="countdown-section">
+    <div class="countdown-title">⏳ Waktu <span>Pengumuman</span> &nbsp;|&nbsp; 2 Juni 2026</div>
+    <div class="countdown-boxes" id="cdBoxes">
+      <div class="cd-box"><span class="cd-num" id="cdDays">--</span><span class="cd-label">Hari</span></div>
+      <div class="cd-separator">:</div>
+      <div class="cd-box"><span class="cd-num" id="cdHours">--</span><span class="cd-label">Jam</span></div>
+      <div class="cd-separator">:</div>
+      <div class="cd-box"><span class="cd-num" id="cdMins">--</span><span class="cd-label">Menit</span></div>
+      <div class="cd-separator">:</div>
+      <div class="cd-box"><span class="cd-num" id="cdSecs">--</span><span class="cd-label">Detik</span></div>
+    </div>
+    <div id="cdDoneMsg" class="cd-done" style="display:none;">🎉 Pengumuman Kelulusan Telah Tiba!</div>
+  </div>
+
+  <main class="landing-main">
+    <!-- Illustration -->
+    <div class="illustration-wrap" style="animation: float 4s ease-in-out 1.5s infinite alternate;">
+      <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;filter:drop-shadow(0 8px 24px rgba(26,107,58,0.18));">
+        <!-- Sky -->
+        <defs>
+          <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#dff5eb"/>
+            <stop offset="100%" style="stop-color:#f0fff6"/>
+          </linearGradient>
+          <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#4caf7d"/>
+            <stop offset="100%" style="stop-color:#2e8b57"/>
+          </linearGradient>
+          <linearGradient id="schoolGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#f5f5dc"/>
+            <stop offset="100%" style="stop-color:#e8e4c9"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="280" fill="url(#sky)" rx="16"/>
+        <!-- Clouds -->
+        <g opacity="0.7">
+          <ellipse cx="80" cy="60" rx="40" ry="18" fill="white"/>
+          <ellipse cx="108" cy="55" rx="28" ry="14" fill="white"/>
+          <ellipse cx="55" cy="62" rx="22" ry="12" fill="white"/>
+          <ellipse cx="380" cy="50" rx="35" ry="15" fill="white"/>
+          <ellipse cx="410" cy="46" rx="24" ry="12" fill="white"/>
+          <ellipse cx="358" cy="52" rx="20" ry="11" fill="white"/>
+        </g>
+        <!-- Stars/Confetti -->
+        <g>
+          <polygon points="200,25 203,34 212,34 205,39 208,48 200,43 192,48 195,39 188,34 197,34" fill="#c9a84c" opacity="0.7"/>
+          <polygon points="440,35 442,41 449,41 443,45 446,51 440,47 434,51 437,45 431,41 438,41" fill="#4caf7d" opacity="0.6"/>
+          <circle cx="310" cy="30" r="5" fill="#c9a84c" opacity="0.5"/>
+          <circle cx="160" cy="45" r="3" fill="#2e8b57" opacity="0.5"/>
+          <rect x="460" y="60" width="8" height="8" rx="2" fill="#c9a84c" opacity="0.5" transform="rotate(30,464,64)"/>
+        </g>
+        <!-- Ground -->
+        <rect x="0" y="220" width="520" height="60" fill="url(#groundGrad)" rx="0"/>
+        <ellipse cx="260" cy="220" rx="260" ry="8" fill="#3d9e62"/>
+        <!-- School Building -->
+        <rect x="170" y="120" width="180" height="110" fill="url(#schoolGrad)" rx="4"/>
+        <!-- Roof -->
+        <polygon points="160,122 260,75 360,122" fill="#1a6b3a"/>
+        <polygon points="185,122 260,82 335,122" fill="#2e8b57"/>
+        <!-- Flag -->
+        <line x1="260" y1="75" x2="260" y2="50" stroke="#555" stroke-width="2"/>
+        <rect x="260" y="50" width="22" height="14" fill="#e74c3c" rx="1"/>
+        <rect x="260" y="50" width="22" height="7" fill="#ffffff" rx="1"/>
+        <!-- Windows -->
+        <rect x="195" y="140" width="35" height="28" rx="4" fill="#a8d5f7" stroke="#aaa" stroke-width="1"/>
+        <rect x="242" y="140" width="35" height="28" rx="4" fill="#a8d5f7" stroke="#aaa" stroke-width="1"/>
+        <rect x="289" y="140" width="35" height="28" rx="4" fill="#a8d5f7" stroke="#aaa" stroke-width="1"/>
+        <!-- Door -->
+        <rect x="237" y="185" width="46" height="45" rx="4" fill="#8B6914"/>
+        <rect x="240" y="188" width="20" height="35" rx="2" fill="#a07830"/>
+        <rect x="262" y="188" width="18" height="35" rx="2" fill="#a07830"/>
+        <circle cx="260" cy="210" r="3" fill="#c9a84c"/>
+        <!-- School Sign -->
+        <rect x="195" y="172" width="130" height="12" rx="3" fill="#1a6b3a"/>
+        <text x="260" y="182" text-anchor="middle" font-family="Poppins,sans-serif" font-size="7" fill="#c9a84c" font-weight="bold">SDN KEDOYA SELATAN 04</text>
+        <!-- Trees -->
+        <rect x="132" y="185" width="8" height="35" fill="#8B4513"/>
+        <circle cx="136" cy="175" r="22" fill="#3d9e62"/>
+        <circle cx="128" cy="180" r="16" fill="#4caf7d"/>
+        <rect x="370" y="190" width="8" height="30" fill="#8B4513"/>
+        <circle cx="374" cy="178" r="22" fill="#3d9e62"/>
+        <circle cx="382" cy="184" r="15" fill="#4caf7d"/>
+        <!-- Students celebrating -->
+        <!-- Student 1 (left) -->
+        <g transform="translate(60,160)">
+          <circle cx="0" cy="-30" r="14" fill="#FDBCB4"/>
+          <rect x="-10" y="-16" width="20" height="26" rx="5" fill="#2e8b57"/>
+          <line x1="-10" y1="-8" x2="-22" y2="2" stroke="#FDBCB4" stroke-width="5" stroke-linecap="round"/>
+          <line x1="10" y1="-8" x2="24" y2="-2" stroke="#FDBCB4" stroke-width="5" stroke-linecap="round"/>
+          <rect x="-8" y="10" width="7" height="20" rx="3" fill="#3a3a3a"/>
+          <rect x="1" y="10" width="7" height="20" rx="3" fill="#3a3a3a"/>
+          <!-- Cap -->
+          <rect x="-14" y="-46" width="28" height="7" rx="2" fill="#1a6b3a"/>
+          <polygon points="-5,-46 5,-46 0,-56" fill="#c9a84c"/>
+          <!-- Diploma -->
+          <rect x="16" y="-12" width="20" height="14" rx="2" fill="#fff" stroke="#c9a84c" stroke-width="1.5"/>
+          <line x1="18" y1="-7" x2="34" y2="-7" stroke="#c9a84c" stroke-width="1.5"/>
+          <line x1="18" y1="-3" x2="34" y2="-3" stroke="#c9a84c" stroke-width="1.5"/>
+        </g>
+        <!-- Student 2 (right) -->
+        <g transform="translate(455,162)">
+          <circle cx="0" cy="-30" r="14" fill="#F5CBA7"/>
+          <rect x="-10" y="-16" width="20" height="26" rx="5" fill="#c9a84c"/>
+          <line x1="-10" y1="-8" x2="-22" y2="-18" stroke="#F5CBA7" stroke-width="5" stroke-linecap="round"/>
+          <line x1="10" y1="-8" x2="22" y2="-2" stroke="#F5CBA7" stroke-width="5" stroke-linecap="round"/>
+          <rect x="-8" y="10" width="7" height="20" rx="3" fill="#3a3a3a"/>
+          <rect x="1" y="10" width="7" height="20" rx="3" fill="#3a3a3a"/>
+          <!-- Cap -->
+          <rect x="-14" y="-46" width="28" height="7" rx="2" fill="#1a6b3a"/>
+          <polygon points="-5,-46 5,-46 0,-56" fill="#c9a84c"/>
+          <!-- Balloon -->
+          <line x1="-18" y1="-14" x2="-28" y2="-38" stroke="#888" stroke-width="1.5"/>
+          <ellipse cx="-28" cy="-46" rx="10" ry="12" fill="#e74c3c"/>
+        </g>
+        <!-- Student 3 (center front) -->
+        <g transform="translate(260,175)">
+          <circle cx="0" cy="-30" r="16" fill="#FDBCB4"/>
+          <rect x="-12" y="-14" width="24" height="28" rx="5" fill="#1a6b3a"/>
+          <line x1="-12" y1="-6" x2="-26" y2="-18" stroke="#FDBCB4" stroke-width="5.5" stroke-linecap="round"/>
+          <line x1="12" y1="-6" x2="26" y2="-18" stroke="#FDBCB4" stroke-width="5.5" stroke-linecap="round"/>
+          <rect x="-9" y="14" width="8" height="22" rx="3" fill="#3a3a3a"/>
+          <rect x="1" y="14" width="8" height="22" rx="3" fill="#3a3a3a"/>
+          <!-- Cap -->
+          <rect x="-17" y="-48" width="34" height="8" rx="2" fill="#1a6b3a"/>
+          <rect x="-8" y="-56" width="16" height="8" rx="2" fill="#1a6b3a"/>
+          <line x1="17" y1="-44" x2="26" y2="-34" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="26" cy="-32" r="3" fill="#c9a84c"/>
+          <!-- Arms up with diploma -->
+          <line x1="-12" y1="-6" x2="-26" y2="-22" stroke="#FDBCB4" stroke-width="5.5" stroke-linecap="round"/>
+          <line x1="12" y1="-6" x2="26" y2="-22" stroke="#FDBCB4" stroke-width="5.5" stroke-linecap="round"/>
+        </g>
+        <!-- Confetti scattered -->
+        <g>
+          <rect x="100" y="90" width="8" height="5" rx="1" fill="#e74c3c" transform="rotate(25,104,92)"/>
+          <rect x="380" y="100" width="7" height="4" rx="1" fill="#3498db" transform="rotate(-20,383,102)"/>
+          <rect x="150" y="110" width="6" height="4" rx="1" fill="#c9a84c" transform="rotate(40,153,112)"/>
+          <rect x="330" y="85" width="8" height="5" rx="1" fill="#9b59b6" transform="rotate(15,334,88)"/>
+          <circle cx="420" cy="120" r="4" fill="#e74c3c" opacity="0.7"/>
+          <circle cx="90" cy="130" r="3" fill="#3498db" opacity="0.7"/>
+          <circle cx="470" cy="90" r="5" fill="#c9a84c" opacity="0.6"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Sambutan -->
+    <div class="sambutan-card">
+      <div class="sambutan-label">Sambutan Kepala Sekolah</div>
+      <div class="sambutan-title">🌿 Selamat & Sukses</div>
+      <div class="sambutan-text">
+        <em>Assalamu'alaikum Warahmatullahi Wabarakatuh.</em><br><br>
+        Dengan penuh rasa syukur, kami mengucapkan selamat kepada seluruh siswa-siswi <strong>SDN Kedoya Selatan 04 Pagi</strong> yang telah menyelesaikan pendidikan selama 6 tahun. Semoga ilmu yang diperoleh menjadi berkah dan bermanfaat.<br><br>
+        <em>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</em>
+      </div>
+      <div class="sambutan-sig">— Kepala Sekolah SDN Kedoya Selatan 04 Pagi</div>
+    </div>
+
+    <!-- CTA Button -->
+    <button class="btn-login" onclick="goToPage('pageCek')">
+      <span class="icon">🎓</span>
+      LOGIN UNTUK MELIHAT HASIL KELULUSAN
+    </button>
+  </main>
+
+  <footer>
+    <span>© SDN Kedoya Selatan 04 Pagi</span> &nbsp;·&nbsp; Tahun Pelajaran 2025/2026
+  </footer>
+</div>
+
+<!-- ==================== PAGE 2: CEK KELULUSAN ==================== -->
+<div class="page" id="pageCek">
+  <header>
+    <div class="header-badge">🎓 Cek Kelulusan</div>
+    <h1>SDN Kedoya Selatan 04 Pagi</h1>
+    <p class="subtitle">Pengumuman Kelulusan Siswa &nbsp;|&nbsp; T.A. 2025/2026</p>
+    <button class="btn-back" onclick="goToPage('pageLanding')">← Kembali</button>
+  </header>
+
+  <div class="countdown-section" style="padding:12px 16px;">
+    <div class="countdown-title" style="margin-bottom:8px;">⏳ Waktu <span>Pengumuman</span> &nbsp;|&nbsp; 2 Juni 2026</div>
+    <div class="countdown-boxes" id="cdBoxes2">
+      <div class="cd-box"><span class="cd-num" id="cdDays2">--</span><span class="cd-label">Hari</span></div>
+      <div class="cd-separator">:</div>
+      <div class="cd-box"><span class="cd-num" id="cdHours2">--</span><span class="cd-label">Jam</span></div>
+      <div class="cd-separator">:</div>
+      <div class="cd-box"><span class="cd-num" id="cdMins2">--</span><span class="cd-label">Menit</span></div>
+      <div class="cd-separator">:</div>
+      <div class="cd-box"><span class="cd-num" id="cdSecs2">--</span><span class="cd-label">Detik</span></div>
+    </div>
+    <div id="cdDoneMsg2" class="cd-done" style="display:none;">🎉 Pengumuman Kelulusan Telah Dibuka!</div>
+  </div>
+
+  <main class="cek-main">
+    <!-- Tabs -->
+    <div class="page-tabs" id="cekTabs" style="display:none;">
+      <button class="tab-btn active" onclick="switchTab('tabCek',this)">🔍 Cek Kelulusan</button>
+      <button class="tab-btn" onclick="switchTab('tabAdmin',this)">⚙ Panel Admin</button>
+    </div>
+
+    <!-- TAB: Cek -->
+    <div id="tabCek" style="width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <!-- Locked message (shown before deadline, non-admin) -->
+      <div class="cek-locked-msg" id="lockedMsg">
+        <div class="lock-icon">🔒</div>
+        <p><strong>Pengumuman belum dibuka.</strong><br>
+        Hasil kelulusan akan dapat dicek mulai tanggal <strong>2 Juni 2026</strong>.<br>
+        Pantau terus halaman ini ya!</p>
+      </div>
+
+      <!-- Form -->
+      <div class="cek-card" id="cekForm">
+        <div class="cek-icon">🔍</div>
+        <h2>Cek Hasil Kelulusan</h2>
+        <p class="cek-sub">Masukkan NISN untuk mengetahui status kelulusanmu</p>
+        <label class="field-label">Masukkan NISN (Nomor Induk Siswa Nasional)</label>
+        <input type="text" id="nisnInput" placeholder="Contoh: 0123456789" maxlength="10" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        <button class="btn-cek" onclick="cekKelulusan()">🎓 CEK HASIL KELULUSAN</button>
+      </div>
+
+      <!-- Result -->
+      <div class="result-card" id="resultCard">
+        <div id="resultContent"></div>
+      </div>
+    </div>
+
+    <!-- TAB: Admin -->
+    <div id="tabAdmin" style="width:100%;max-width:560px;display:none;">
+      <div class="admin-card">
+        <div class="admin-header">
+          <span style="font-size:1.5rem;">⚙</span>
+          <div>
+            <div style="font-family:'Amiri',serif;font-size:1.1rem;color:var(--green-deep);font-weight:700;">Panel Admin</div>
+            <div class="admin-badge">Akses Terbatas</div>
+          </div>
+        </div>
+        <!-- Sheet sync status -->
+        <div id="sheetSyncStatus" style="font-size:0.75rem;margin-bottom:14px;padding:8px 12px;background:var(--green-pale);border-radius:8px;color:#888;">
+          🔄 Menyinkronkan data dari Google Sheet...
+        </div>
+
+        <!-- Upload CSV -->
+        <label for="csvUpload" class="upload-area" id="uploadArea">
+          <input type="file" id="csvUpload" accept=".csv,.xlsx,.txt" onchange="handleFileUpload(event)">
+          <div class="upload-icon">📄</div>
+          <p><strong>Upload Data Siswa (Override)</strong><br>Klik untuk memilih file CSV lokal<br><small style="color:#aaa;">Format: NISN, Nama, Status, URL_Foto<br>(kolom URL_Foto opsional — isi link foto langsung)</small></p>
+        </label>
+        <button onclick="refreshSheetData()" style="width:100%;margin-bottom:16px;padding:10px;background:none;border:2px solid var(--green-mid);color:var(--green-deep);border-radius:10px;font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='none'">
+          🔄 Refresh Data dari Google Sheet
+        </button>
+
+        <!-- Admin Search -->
+        <label class="field-label">Cari Siswa by NISN</label>
+        <div class="admin-search">
+          <input type="text" id="adminNisnInput" placeholder="Masukkan NISN..." maxlength="10">
+          <button onclick="adminCek()">Cari</button>
+        </div>
+        <div id="adminResult" style="font-size:0.82rem;color:var(--text-mid);margin-bottom:12px;"></div>
+
+        <!-- Table -->
+        <div class="admin-table-wrap">
+          <table id="adminTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Foto</th>
+                <th>NISN</th>
+                <th>Nama Lengkap</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              <tr><td colspan="4" style="text-align:center;color:#aaa;font-style:italic;padding:20px;">Upload file CSV untuk menampilkan data siswa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Logout -->
+        <button onclick="adminLogout()" style="margin-top:18px;background:none;border:2px solid #e57373;color:#c62828;border-radius:8px;padding:8px 18px;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;width:100%;">🚪 Keluar dari Panel Admin</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© SDN Kedoya Selatan 04 Pagi</span> &nbsp;·&nbsp; Tahun Pelajaran 2025/2026
+  </footer>
+</div>
+
+<script>
+// ===================== STATE =====================
+const ANNOUNCEMENT_DATE = new Date('2026-06-02T07:00:00+07:00');
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'sdn04admin2026'; // ganti sesuai kebutuhan
+let isAdmin = false;
+let isAnnouncementOpen = false;
+let studentsData = [];
+
+// Google Sheet CSV URL (auto-fetched on load)
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q46ndcddG-00S-cgjcV3juQXKWpGyIeSXL_1ObX_n7QkH-9G0ly0PRaptm5QI8iid8MhCPLI5HvB/pub?output=csv';
+
+// Fallback built-in data (dari Google Sheet — NISN 10 digit dengan leading zero)
+let defaultData = [
+  { nisn: '3137457961', nama: 'ADHE DANU SAPUTRA', status: 'LULUS', foto: '' },
+  { nisn: '3137938356', nama: 'AISYA NUR FATIHA', status: 'LULUS', foto: '' },
+  { nisn: '3133016849', nama: 'ALVIN SHAKI ZAIDAN', status: 'LULUS', foto: '' },
+  { nisn: '3132466629', nama: 'AQIILA AINUN WIDIANINGSIH', status: 'LULUS', foto: '' },
+  { nisn: '3133758022', nama: 'ARDIYANTO', status: 'LULUS', foto: '' },
+  { nisn: '3138210307', nama: 'ARIQ FATIH ALKAUTSAR', status: 'LULUS', foto: '' },
+  { nisn: '3121380774', nama: 'AVICHA ZAHWA OCTAVIA', status: 'LULUS', foto: '' },
+  { nisn: '0136647333', nama: 'AZKA PUTRA AINNURRAHMAN', status: 'LULUS', foto: '' },
+  { nisn: '3138647923', nama: 'DEZFA ADRIAN MARVINO', status: 'LULUS', foto: '' },
+  { nisn: '3133988609', nama: 'DINDA ALESHA PRAMESWARI', status: 'LULUS', foto: '' },
+  { nisn: '3134431457', nama: 'FAREL ATHARIZ CALIEF', status: 'LULUS', foto: '' },
+  { nisn: '3121973297', nama: 'GHEA AKMALLIA', status: 'LULUS', foto: '' },
+  { nisn: '3138345931', nama: 'GIBRAN PUTRA ANGGORO', status: 'LULUS', foto: '' },
+  { nisn: '3124231950', nama: 'GILANG PRAYITNO RAMADHAN', status: 'LULUS', foto: '' },
+  { nisn: '3133592322', nama: 'GILANG RAMADHAN SYAHPUTRA', status: 'LULUS', foto: '' },
+  { nisn: '0138268780', nama: 'JUNITA SEPTIANI', status: 'LULUS', foto: '' },
+  { nisn: '3122976509', nama: 'KEISYA PUTRI AWALIYAH', status: 'LULUS', foto: '' },
+  { nisn: '3132551800', nama: 'MUHAMAD CHAIRUL SIDIK', status: 'LULUS', foto: '' },
+  { nisn: '3147461904', nama: 'MUHAMAD IBNU BAWAZIR', status: 'LULUS', foto: '' },
+  { nisn: '0139006164', nama: 'MUHAMMAD IDHAM', status: 'LULUS', foto: '' },
+  { nisn: '3136620937', nama: 'NADINE NUR IBRAHIM', status: 'LULUS', foto: '' },
+  { nisn: '0137994294', nama: 'NAYSILLA NURI AULIA', status: 'LULUS', foto: '' },
+  { nisn: '3137923017', nama: 'RAFLI MUHAMAD DWI SETIAWAN', status: 'LULUS', foto: '' },
+  { nisn: '3138119015', nama: 'RHAISAH YASMINA FAIHA', status: 'LULUS', foto: '' },
+  { nisn: '3130979479', nama: 'RIZKY MAULANA', status: 'LULUS', foto: '' },
+  { nisn: '3131455250', nama: 'SAIFANAH NADHIFAH', status: 'LULUS', foto: '' },
+  { nisn: '3124574926', nama: 'SALSABIL KAMILAH', status: 'LULUS', foto: '' },
+  { nisn: '3139564351', nama: 'SITI NUR AZIZAH AHMADI', status: 'LULUS', foto: '' },
+  { nisn: '3125479736', nama: 'SYARIFAH AALIA MALENA', status: 'LULUS', foto: '' },
+  { nisn: '3124375296', nama: 'ZAHRA AYUDYA ANASTASYA', status: 'LULUS', foto: '' },
+  { nisn: '3125083194', nama: 'ZAKY ALNUR QORI', status: 'LULUS', foto: '' },
+  { nisn: '0136724495', nama: 'ABDUL KHOLIK', status: 'LULUS', foto: '' },
+  { nisn: '3133294457', nama: 'AFFAN NABIH RACHMAN', status: 'LULUS', foto: '' },
+  { nisn: '3136261797', nama: 'AFIKA EVIOLINA PUTRI', status: 'LULUS', foto: '' },
+  { nisn: '3131788846', nama: 'AL IBRAHIM KHAIRUNNIZAM', status: 'LULUS', foto: '' },
+  { nisn: '3135663892', nama: 'AMANDA SAFIRA', status: 'LULUS', foto: '' },
+  { nisn: '3136555868', nama: 'ASILLA ZAHRA', status: 'LULUS', foto: '' },
+  { nisn: '0139958819', nama: 'AUFAR HIJRI IRAWAN', status: 'LULUS', foto: '' },
+  { nisn: '3132659804', nama: 'DENNIS SYAHREZA', status: 'LULUS', foto: '' },
+  { nisn: '3134414419', nama: 'FAJAR DAIYAN FAEYZA', status: 'LULUS', foto: '' },
+  { nisn: '3133303370', nama: 'FARAH GUNAWAN', status: 'LULUS', foto: '' },
+  { nisn: '0137575878', nama: 'FAZILA ARSYA DEVENIANDRA SETIAWAN', status: 'LULUS', foto: '' },
+  { nisn: '3132293572', nama: 'FRISCHA AZZAHRA', status: 'LULUS', foto: '' },
+  { nisn: '0136349457', nama: 'GILANG RAMADHAN', status: 'LULUS', foto: '' },
+  { nisn: '3131825528', nama: 'HANIIFAH ZAHRA APRIANI', status: 'LULUS', foto: '' },
+  { nisn: '3139414401', nama: 'KAYRA ASLIKHATIL RIZKIA', status: 'LULUS', foto: '' },
+  { nisn: '0136074886', nama: 'KEIZIE SIDIK SETIAWAN', status: 'LULUS', foto: '' },
+  { nisn: '3136812588', nama: 'MELODY SALWA TABINA', status: 'LULUS', foto: '' },
+  { nisn: '3139428304', nama: 'MUHAMMAD HAFIZH AL MUZHAFFAR', status: 'LULUS', foto: '' },
+  { nisn: '3136358198', nama: 'MUSYAFFA IKHRAMUDDIN', status: 'LULUS', foto: '' },
+  { nisn: '3134661396', nama: 'NISA USWATUN', status: 'LULUS', foto: '' },
+  { nisn: '3131628910', nama: 'PIKA APRILLIYA', status: 'LULUS', foto: '' },
+  { nisn: '3129348088', nama: 'PUTRA ANGGA PRATAMA', status: 'LULUS', foto: '' },
+  { nisn: '3120103518', nama: 'RAIHAN SETIAWAN', status: 'LULUS', foto: '' },
+  { nisn: '3135437793', nama: 'SABILUL AULA IRSYAD', status: 'LULUS', foto: '' },
+  { nisn: '3139257488', nama: 'SARAH GUNAWAN', status: 'LULUS', foto: '' },
+  { nisn: '3134888993', nama: 'SITI HASANAH AZZAWIYAH', status: 'LULUS', foto: '' },
+  { nisn: '3135067204', nama: 'SYAFA DWIANANTA', status: 'LULUS', foto: '' },
+  { nisn: '3138888661', nama: 'ZAHIRA CAHYA KIRANA', status: 'LULUS', foto: '' },
+  { nisn: '3139884766', nama: 'ZALFA NAQILAH', status: 'LULUS', foto: '' },
+];
+studentsData = [...defaultData];
+
+// Auto-fetch latest data from Google Sheet on page load
+async function fetchSheetData() {
+  const indicator = document.getElementById('sheetSyncStatus');
+  try {
+    const resp = await fetch(SHEET_CSV_URL);
+    if (!resp.ok) throw new Error('Network error');
+    const text = await resp.text();
+    const parsed = parseCSV(text);
+    if (parsed.length > 0) {
+      studentsData = parsed;
+      if (indicator) indicator.innerHTML = `<span style="color:#2e8b57;">✅ Data tersinkron dari Google Sheet (${parsed.length} siswa)</span>`;
+      // refresh admin table if open
+      const adminTab = document.getElementById('tabAdmin');
+      if (adminTab && adminTab.style.display !== 'none') renderAdminTable(studentsData);
+    }
+  } catch(e) {
+    if (indicator) indicator.innerHTML = `<span style="color:#b45309;">⚠ Menggunakan data lokal (${studentsData.length} siswa)</span>`;
+  }
+}
+fetchSheetData();
+
+function refreshSheetData() {
+  const indicator = document.getElementById('sheetSyncStatus');
+  if (indicator) indicator.innerHTML = `<span style="color:#888;">🔄 Menyinkronkan ulang...</span>`;
+  fetchSheetData();
+}
+
+// ===================== PAGE NAV =====================
+function goToPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  if (id === 'pageCek') initCekPage();
+}
+
+// ===================== COUNTDOWN =====================
+function pad(n){ return String(n).padStart(2,'0'); }
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = ANNOUNCEMENT_DATE - now;
+  isAnnouncementOpen = diff <= 0;
+
+  const sets = [
+    { d:'cdDays', h:'cdHours', m:'cdMins', s:'cdSecs', done:'cdDoneMsg', boxes:'cdBoxes' },
+    { d:'cdDays2', h:'cdHours2', m:'cdMins2', s:'cdSecs2', done:'cdDoneMsg2', boxes:'cdBoxes2' },
+  ];
+
+  sets.forEach(set => {
+    const dEl = document.getElementById(set.d);
+    if (!dEl) return;
+    if (isAnnouncementOpen) {
+      document.getElementById(set.boxes).style.display = 'none';
+      document.getElementById(set.done).style.display = 'block';
+    } else {
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+      dEl.textContent = pad(days);
+      document.getElementById(set.h).textContent = pad(hours);
+      document.getElementById(set.m).textContent = pad(mins);
+      document.getElementById(set.s).textContent = pad(secs);
+    }
+  });
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ===================== CEK PAGE INIT =====================
+function initCekPage() {
+  const lockedMsg = document.getElementById('lockedMsg');
+  const cekFormEl = document.getElementById('cekForm');
+  const tabs = document.getElementById('cekTabs');
+  const resultCard = document.getElementById('resultCard');
+  resultCard.classList.remove('show','lulus','tidak-lulus','not-found');
+
+  if (isAdmin) {
+    lockedMsg.classList.remove('show');
+    cekFormEl.style.display = 'block';
+    tabs.style.display = 'flex';
+  } else if (isAnnouncementOpen) {
+    lockedMsg.classList.remove('show');
+    cekFormEl.style.display = 'block';
+    tabs.style.display = 'none';
+    document.getElementById('tabAdmin').style.display = 'none';
+  } else {
+    lockedMsg.classList.add('show');
+    cekFormEl.style.display = 'none';
+    tabs.style.display = 'none';
+  }
+}
+
+// ===================== CEK KELULUSAN =====================
+function cekKelulusan() {
+  const nisn = document.getElementById('nisnInput').value.trim();
+  const card = document.getElementById('resultCard');
+  const content = document.getElementById('resultContent');
+
+  card.classList.remove('show','lulus','tidak-lulus','not-found');
+  content.innerHTML = '';
+
+  if (!nisn) {
+    card.classList.add('show','not-found');
+    content.innerHTML = `<p class="result-error">⚠ Harap masukkan NISN terlebih dahulu.</p>`;
+    return;
+  }
+  if (nisn.length < 9) {
+    card.classList.add('show','not-found');
+    content.innerHTML = `<p class="result-error">⚠ NISN minimal 9 digit angka.</p>`;
+    return;
+  }
+
+  // Cari dengan pencocokan fleksibel: cocokkan NISN persis ATAU tanpa leading zero
+  const found = studentsData.find(s =>
+    s.nisn === nisn ||
+    s.nisn === nisn.padStart(10, '0') ||
+    s.nisn.replace(/^0+/, '') === nisn.replace(/^0+/, '')
+  );
+
+  if (!found) {
+    card.classList.add('show','not-found');
+    content.innerHTML = `
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:10px;">🔎</div>
+        <div style="font-size:1rem;font-weight:700;color:#92650a;margin-bottom:6px;">Data Tidak Ditemukan</div>
+        <p style="font-size:0.8rem;color:#aaa;">NISN <strong>${nisn}</strong> tidak terdaftar dalam sistem.<br>Pastikan NISN yang dimasukkan benar.</p>
+      </div>`;
+    return;
+  }
+
+  const isLulus = found.status === 'LULUS';
+  card.classList.add('show', isLulus ? 'lulus' : 'tidak-lulus');
+
+  // Photo area: show image if URL available, else fallback avatar
+  const fotoUrl = (found.foto || '').trim();
+  const fotoHTML = fotoUrl
+    ? `<img src="${fotoUrl}" alt="Foto ${found.nama}"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+         style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;
+                border:3px solid ${isLulus?'#4caf7d':'#e57373'};box-shadow:0 4px 12px rgba(0,0,0,0.12);flex-shrink:0;">
+       <div style="display:none;width:80px;height:80px;border-radius:50%;
+                   background:${isLulus?'#e8f8ee':'#fff0f0'};
+                   border:3px solid ${isLulus?'#4caf7d':'#e57373'};
+                   align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;">${isLulus?'🎓':'📋'}</div>`
+    : `<div style="width:80px;height:80px;border-radius:50%;
+                   background:${isLulus?'#e8f8ee':'#fff0f0'};
+                   border:3px solid ${isLulus?'#4caf7d':'#e57373'};
+                   display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;">${isLulus?'🎓':'📋'}</div>`;
+
+  content.innerHTML = `
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div style="flex-shrink:0;">${fotoHTML}</div>
+      <div>
+        <div class="result-siswa-name">${found.nama}</div>
+        <div class="result-nisn">NISN: ${found.nisn}</div>
+      </div>
+    </div>
+    <div>
+      <span class="result-status ${isLulus?'lulus':'tidak-lulus'}">
+        ${isLulus ? '✅ LULUS' : '❌ TIDAK LULUS'}
+      </span>
+    </div>
+    ${isLulus ? `
+    <div class="result-msg">
+      <strong>🎉 Selamat! Anda Dinyatakan LULUS!</strong>
+      Silahkan Pantau Group Kelas Untuk Melihat Jadwal Pengambilan SKL atau Ijazah.<br>
+      Terimakasih.
+    </div>` : `
+    <div class="result-msg" style="border-left-color:#e57373;background:rgba(198,40,40,0.06);">
+      <strong style="color:#c62828;">📋 Status: Tidak Lulus</strong>
+      Hubungi pihak sekolah untuk informasi lebih lanjut.
+    </div>`}
+  `;
+}
+
+// ===================== TABS =====================
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tabCek').style.display = tabId==='tabCek' ? 'flex' : 'none';
+  document.getElementById('tabAdmin').style.display = tabId==='tabAdmin' ? 'block' : 'none';
+  if (tabId==='tabAdmin') renderAdminTable(studentsData);
+}
+
+// ===================== ADMIN AUTH =====================
+function showAdminOverlay() {
+  document.getElementById('adminOverlay').style.display = 'flex';
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
+  document.getElementById('adminErr').style.display = 'none';
+  setTimeout(() => document.getElementById('adminUser').focus(), 100);
+}
+
+function closeAdminOverlay() {
+  document.getElementById('adminOverlay').style.display = 'none';
+}
+
+function doAdminLogin() {
+  const u = document.getElementById('adminUser').value.trim();
+  const p = document.getElementById('adminPass').value.trim();
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    isAdmin = true;
+    closeAdminOverlay();
+    goToPage('pageCek');
+  } else {
+    document.getElementById('adminErr').style.display = 'block';
+  }
+}
+
+document.getElementById('adminPass').addEventListener('keydown', e => { if(e.key==='Enter') doAdminLogin(); });
+
+function adminLogout() {
+  isAdmin = false;
+  switchTab('tabCek', document.querySelector('.tab-btn'));
+  initCekPage();
+}
+
+// ===================== ADMIN CEK =====================
+function adminCek() {
+  const nisn = document.getElementById('adminNisnInput').value.trim();
+  const el = document.getElementById('adminResult');
+  if (!nisn) { el.textContent = ''; return; }
+  const found = studentsData.find(s => s.nisn === nisn);
+  if (!found) {
+    el.innerHTML = `<span style="color:#b45309;">⚠ NISN <strong>${nisn}</strong> tidak ditemukan.</span>`;
+  } else {
+    const isLulus = found.status === 'LULUS';
+    const fotoUrl = (found.foto || '').trim();
+    const fotoTag = fotoUrl
+      ? `<img src="${fotoUrl}" onerror="this.style.display='none'" style="width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid ${isLulus?'#4caf7d':'#e57373'};vertical-align:middle;margin-right:8px;">`
+      : `<span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:${isLulus?'#e8f8ee':'#fff0f0'};border:2px solid ${isLulus?'#4caf7d':'#e57373'};font-size:1.1rem;vertical-align:middle;margin-right:8px;">${isLulus?'🎓':'📋'}</span>`;
+    el.innerHTML = `<div style="display:flex;align-items:center;padding:8px;background:${isLulus?'#e8f8ee':'#fff0f0'};border-radius:10px;">
+      ${fotoTag}
+      <div><strong>${found.nama}</strong> &nbsp;–&nbsp; <span class="badge-${isLulus?'lulus':'tidak'}">${found.status}</span><br>
+      <span style="font-size:0.72rem;color:#888;">NISN: ${found.nisn}</span></div>
+    </div>`;
+  }
+}
+
+// ===================== FILE UPLOAD =====================
+function handleFileUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const text = e.target.result;
+    const parsed = parseCSV(text);
+    if (parsed.length > 0) {
+      studentsData = parsed;
+      document.getElementById('uploadArea').style.background = '#e8f8ee';
+      document.getElementById('uploadArea').querySelector('p').innerHTML = `<strong style="color:#2e8b57;">✅ ${parsed.length} data siswa berhasil dimuat!</strong><br><small>File: ${file.name}</small>`;
+      renderAdminTable(parsed);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function parseCSV(text) {
+  // Normalize line endings (Windows \r\n → \n)
+  const lines = text.trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const result = [];
+  // Deteksi header: baris pertama mengandung huruf non-angka di kolom pertama
+  const firstNisn = lines[0].split(',')[0].trim().replace(/"/g, '');
+  const startIdx = /[a-zA-Z]/.test(firstNisn) ? 1 : 0;
+  for (let i = startIdx; i < lines.length; i++) {
+    if (!lines[i].trim()) continue;
+    const parts = splitCSVLine(lines[i]);
+    if (parts.length >= 3) {
+      // Simpan NISN sebagai string murni — jangan ubah ke angka agar leading zero terjaga
+      const nisn   = parts[0].trim().replace(/"/g, '');
+      const nama   = parts[1].trim().replace(/"/g, '');
+      const status = parts[2].trim().replace(/"/g, '').toUpperCase();
+      const foto   = parts[3] ? parts[3].trim().replace(/"/g, '') : '';
+      if (nisn) result.push({ nisn, nama, status, foto });
+    }
+  }
+  return result;
+}
+
+// Proper CSV line splitter that handles quoted fields with commas inside
+function splitCSVLine(line) {
+  const result = [];
+  let cur = '';
+  let inQuote = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') { inQuote = !inQuote; }
+    else if (ch === ',' && !inQuote) { result.push(cur); cur = ''; }
+    else { cur += ch; }
+  }
+  result.push(cur);
+  return result;
+}
+
+function renderAdminTable(data) {
+  const tbody = document.getElementById('adminTableBody');
+  if (!data || data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#aaa;font-style:italic;padding:20px;">Belum ada data.</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map((s, i) => {
+    const fotoUrl = (s.foto || '').trim();
+    const fotoCell = fotoUrl
+      ? `<img src="${fotoUrl}" alt="" onerror="this.outerHTML='<span style=\\'font-size:1.3rem;\\'>👤</span>'"
+             style="width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:top;
+                    border:2px solid ${s.status==='LULUS'?'#4caf7d':'#e57373'};">`
+      : `<span style="font-size:1.3rem;">👤</span>`;
+    return `
+    <tr>
+      <td>${i+1}</td>
+      <td style="text-align:center;">${fotoCell}</td>
+      <td>${s.nisn}</td>
+      <td>${s.nama}</td>
+      <td><span class="${s.status==='LULUS'?'badge-lulus':'badge-tidak'}">${s.status}</span></td>
+    </tr>`;
+  }).join('');
+}
+</script>
+</body>
+</html>
